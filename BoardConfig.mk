@@ -56,6 +56,9 @@ TARGET_KERNEL_VERSION := 4.9
 TARGET_KERNEL_CLANG_VERSION := proton
 TARGET_KERNEL_LLVM_BINUTILS := false
 
+TARGET_KERNEL_ADDITIONAL_FLAGS := \
+    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+
 # ANT
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
