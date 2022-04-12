@@ -35,10 +35,6 @@ PRODUCT_MANUFACTURER := Xiaomi
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sdm
-
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720
 	
