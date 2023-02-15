@@ -25,9 +25,6 @@ $(call inherit-product, device/xiaomi/santoni/device.mk)
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Prebuilt apps
-$(call inherit-product-if-exists, vendor/miuicamera/config.mk)
-
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4X
