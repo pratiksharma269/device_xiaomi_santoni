@@ -40,9 +40,6 @@ PRODUCT_NAME := aosp_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
-# Overlay
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
-
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720
 
