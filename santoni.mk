@@ -22,13 +22,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_n_mr1.mk
 # Inherit from santoni device
 $(call inherit-product, device/xiaomi/santoni/device.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common LeafOS stuff.
+$(call inherit-product, vendor/leaf/config/common_full_phone.mk)
 
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4X
-PRODUCT_NAME := lineage_santoni
+PRODUCT_NAME := santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 

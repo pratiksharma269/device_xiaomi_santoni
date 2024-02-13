@@ -1,8 +1,8 @@
-# LineageOS (crDroid)
+# LeafOS
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_santoni.mk
+    $(LOCAL_DIR)/santoni.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_santoni-userdebug \
-    lineage_santoni-user \
-    lineage_santoni-eng
+    santoni-userdebug \
+    santoni-user \
+    santoni-eng
