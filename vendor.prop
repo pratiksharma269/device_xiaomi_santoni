@@ -63,6 +63,7 @@ persist.vendor.camera.display.umax=1920x1080
 persist.vendor.qti.telephony.vt_cam_interface=2
 media.camera.ts.monotonic=1
 persist.camera.HAL3.enabled=1
+persist.vendor.camera.perflock.enable=0
 
 # CNE/DPM
 persist.vendor.cne.feature=1
