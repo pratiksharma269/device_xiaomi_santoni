@@ -19,3 +19,6 @@ allow hal_power_default sysfs_kgsl:lnk_file r_file_perms;
 allow hal_power_default sysfs_kgsl:file w_file_perms;
 allow hal_power_default sysfs_devfreq:dir search;
 allow hal_power_default sysfs_kgsl:lnk_file read;
+
+allow hal_power_stats_default sysfs:dir open;
+allow hal_power_stats_default sysfs:dir read;
