@@ -25,6 +25,8 @@ $(call inherit-product, device/xiaomi/santoni/device.mk)
 # Inherit some common LeafOS stuff.
 $(call inherit-product, vendor/leaf/config/common_full_phone.mk)
 
+TARGET_CALL_RECORDING_SUPPORTED := true
+
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 4X
