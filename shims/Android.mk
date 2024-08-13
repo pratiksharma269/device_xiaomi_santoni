@@ -1,16 +1,8 @@
-# Copyright (C) 2020 The LineageOS Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
+# Copyright (C) 2024 The LineageOS Project
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# SPDX-License-Identifier: Apache-2.0
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
 
 LOCAL_PATH := $(call my-dir)
 
@@ -21,3 +13,58 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_VENDOR_MODULE := true
 include $(BUILD_SHARED_LIBRARY)
+
+
+_shim_hidl_library_name     := android.hardware.radio.c_shim
+_frontend_hidl_package_name := android.hardware.radio.config
+_backend_hidl_package_name  := lineage.hardware.radio.config
+_frontend_hidl_interface_name   := IRadioConfig
+_backend_hidl_interface_name    := $(_frontend_hidl_interface_name)
+
+ifeq ($(TARGET_IS_64_BIT),true)
+_lib_dir := lib64
+else
+_lib_dir := lib
+endif
+
+include $(CLEAR_VARS)
+_version := 1.0
+_sed_pattern := "s|$(_frontend_hidl_package_name)@$(_version)::$(_frontend_hidl_interface_name)|$(_backend_hidl_package_name)@$(_version)::$(_backend_hidl_interface_name)|g;s|$(_frontend_hidl_package_name)(@1\.[0-9]\.so)|$(_shim_hidl_library_name)\1|g"
+
+LOCAL_MODULE       := $(_shim_hidl_library_name)@$(_version)
+LOCAL_MODULE_STEM  := $(LOCAL_MODULE).so
+LOCAL_MODULE_CLASS := DATA
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/$(_lib_dir)
+LOCAL_REQUIRED_MODULES := $(_frontend_hidl_package_name)@$(_version).vendor
+LOCAL_PREBUILT_MODULE_FILE := $(TARGET_OUT_VENDOR)/$(_lib_dir)/$(_frontend_hidl_package_name)@$(_version).so
+LOCAL_POST_INSTALL_CMD := /usr/bin/sed -E -i $(_sed_pattern) $(LOCAL_MODULE_PATH)/$(LOCAL_MODULE_STEM)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+_version := 1.1
+_sed_pattern := "s|$(_frontend_hidl_package_name)@$(_version)::$(_frontend_hidl_interface_name)|$(_backend_hidl_package_name)@$(_version)::$(_backend_hidl_interface_name)|g;s|$(_frontend_hidl_package_name)(@1\.[0-9]\.so)|$(_shim_hidl_library_name)\1|g"
+
+LOCAL_MODULE       := $(_shim_hidl_library_name)@$(_version)
+LOCAL_MODULE_STEM  := $(LOCAL_MODULE).so
+LOCAL_MODULE_CLASS := DATA
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/$(_lib_dir)
+LOCAL_REQUIRED_MODULES := $(_frontend_hidl_package_name)@$(_version).vendor
+LOCAL_PREBUILT_MODULE_FILE := $(TARGET_OUT_VENDOR)/$(_lib_dir)/$(_frontend_hidl_package_name)@$(_version).so
+LOCAL_POST_INSTALL_CMD := /usr/bin/sed -E -i $(_sed_pattern) $(LOCAL_MODULE_PATH)/$(LOCAL_MODULE_STEM)
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+_version := 1.2
+_sed_pattern := "s|$(_frontend_hidl_package_name)@$(_version)::$(_frontend_hidl_interface_name)|$(_backend_hidl_package_name)@$(_version)::$(_backend_hidl_interface_name)|g;s|$(_frontend_hidl_package_name)(@1\.[0-9]\.so)|$(_shim_hidl_library_name)\1|g"
+
+LOCAL_MODULE       := $(_shim_hidl_library_name)@$(_version)
+LOCAL_MODULE_STEM  := $(LOCAL_MODULE).so
+LOCAL_MODULE_CLASS := DATA
+LOCAL_MODULE_TAGS  := optional
+LOCAL_MODULE_PATH  := $(TARGET_OUT_VENDOR)/$(_lib_dir)
+LOCAL_REQUIRED_MODULES := $(_frontend_hidl_package_name)@$(_version).vendor
+LOCAL_PREBUILT_MODULE_FILE := $(TARGET_OUT_VENDOR)/$(_lib_dir)/$(_frontend_hidl_package_name)@$(_version).so
+LOCAL_POST_INSTALL_CMD := /usr/bin/sed -E -i $(_sed_pattern) $(LOCAL_MODULE_PATH)/$(LOCAL_MODULE_STEM)
+include $(BUILD_PREBUILT)
