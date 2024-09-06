@@ -564,6 +564,9 @@ endif
 PRODUCT_PACKAGES += \
     libnl
 
+# Sign Builds
+include vendor/lineage-priv/keys/keys.mk
+
 # Reduce system image size by limiting java debug info.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 
