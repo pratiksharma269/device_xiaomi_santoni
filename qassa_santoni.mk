@@ -16,22 +16,21 @@
 
 $(call inherit-product, device/xiaomi/santoni/full_santoni.mk)
 
-# Inherit some common Resurrection Remix-OS stuff.
-$(call inherit-product, vendor/rr/config/common_full_phone.mk)
+# Inherit some common QASSA stuff.
+$(call inherit-product, vendor/qassa/config/common_full_phone.mk)
 
 PRODUCT_DEVICE := santoni
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 4x
-PRODUCT_NAME := rr_santoni
+PRODUCT_MODEL := Redmi 4
+PRODUCT_NAME := qassa_santoni
 BOARD_VENDOR := Xiaomi
 PRODUCT_MANUFACTURER := Xiaomi
 
-# RR Wallpapers
-BUILD_RR_WALLPAPERS := true
-
-# RR Stuffs
 TARGET_FACE_UNLOCK_SUPPORTED := true
-export RR_BUILDTYPE := Official
+#TARGET_GAPPS_ARCH := arm64
+USE_PIXEL_CHARGER := true
+TARGET_BOOT_ANIMATION_RES := 1080
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
